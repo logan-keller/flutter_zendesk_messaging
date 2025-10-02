@@ -119,6 +119,13 @@ public class SwiftZendeskMessagingPlugin: NSObject, FlutterPlugin {
             }
             zendeskMessaging?.invalidate()
             result(nil)
+        case "updatePushNotificationToken":
+            if (!isInitialized) {
+                print("\(TAG) - Messaging needs to be initialized first.\n")
+            }
+            let token: String = arguments?["token"] as! String
+            zendeskMessaging.updatePushNotificationToken(token: token)
+            result(nil)
         default:
             result(FlutterMethodNotImplemented)
         }

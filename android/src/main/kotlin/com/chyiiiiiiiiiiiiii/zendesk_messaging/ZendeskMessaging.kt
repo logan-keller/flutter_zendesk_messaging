@@ -119,4 +119,8 @@ class ZendeskMessaging(
     fun clearConversationFields() {
         Zendesk.instance.messaging.clearConversationFields()
     }
+
+    fun updatePushNotificationToken(token: String) {
+        PushNotifications.updatePushNotificationToken(token)
+    }
 }

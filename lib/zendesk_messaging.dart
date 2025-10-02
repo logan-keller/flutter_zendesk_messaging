@@ -216,4 +216,14 @@ class ZendeskMessaging {
       debugPrint('ZendeskMessaging - clearConversationFields - Error: $e}');
     }
   }
+
+  /// Register the device push notification token with the Zendesk SDK
+  static Future<void> updatePushNotificationToken(String token) async {
+    try {
+      await _channel
+          .invokeMethod('updatePushNotificationToken', {'token': token});
+    } catch (e) {
+      debugPrint('ZendeskMessaging - updatePushNotificationToken - Error: $e}');
+    }
+  }
 }
